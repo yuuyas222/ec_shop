@@ -1,0 +1,70 @@
+<h1>注文確認画面</h1>
+<div class="row">
+    <div class="col-xs-8">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>商品名</th>
+                    <th>単価（税込）</th>
+                    <th>数量</th>
+                    <th>小計</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% total_price = 0 %>
+            <% @orders.each do |order| %>
+                <tr>
+                    <td><%= order.product.name %></td>
+                    <td><%= order.product.price %></td>
+                    <td><%= order.quantity %></td>
+                    <td>
+                        <%= order.subtotal_price %>
+                        <% total_price += order.subtotal_price %>
+                    </td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="col-xs-4">
+        <table class="table table-bordered">
+                <tr>
+                    <th>送料</th>
+                    <td>800</td>
+                </tr>
+                <tr>
+                    <th>商品合計</th>
+                    <td><%= total_price %></td>
+                </tr>
+                <tr>
+                    <th>請求金額</th>
+                    <td>
+                        <% billing_amount = total_price + 800 %>
+                        <%= billing_amount %>
+                    </td>
+                </tr>
+        </table>
+    </div>
+</div>
+
+<div class="order_confirm">
+
+    <span>支払方法</span><%= @order.payment %>
+    <span>お届け先</span><%= @order.shipping_address %>
+    <%= form_with model: @order, url: orders_path , local: true do |f| %>
+        <%= f.hidden_field :shipping_name, :value => @order.shipping_name %>
+        <%= hidden_field_tag 'destination[name]', :value => @order.shipping_name %>
+        <%= f.hidden_field :shipping_postcode, :value => @order.shipping_postcode %>
+        <%= hidden_field_tag 'destination[postcode]', :value => @order.shipping_postcode %>
+        <%= f.hidden_field :shipping_address, :value => @order.shipping_address %>
+        <%= hidden_field_tag 'dstination[address]', :value => @order.shipping_address %>
+        <%= f.hidden_field :payment, :value => @order.payment %>
+        <%= f.hidden_field :total_price, :value => billing_amount %>
+
+
+    <%= f.submit "詳細入力へ戻る", name: "back" %>
+    <%= f.submit "注文を確定する" %>
+    <% end %>
+</div>

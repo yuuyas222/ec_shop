@@ -1,0 +1,64 @@
+// Place all the styles related to the customers::products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.products {
+	display: flex;
+}
+
+.product {
+	margin-right: 10px;
+	width: 25%;
+	&:last-child {
+		margin-right: 0;
+	}
+	&-index-image {
+		height: 100px;
+		width: 100%;
+		background-color: #000;
+	}
+}
+
+.clearfix{
+    margin-top: 100px;
+}
+
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.attachment_field{
+    height: 150px;
+    width: 200px;
+}
+
+.ad-left-side{
+    float: left;
+    margin-right: 20px;
+    padding-top: 15px;
+}
+
+.img{
+    width: 200px;
+    height: 150px;
+    border: 5px inset #fafad2;
+    margin-bottom: 10px;
+}
+.ad-right-side{
+    float: left;
+    margin-left: 40px;
+}
+.right-side p{
+    width: 100%;
+}
+
+.ad-product{
+    text-align: left;
+    margin: 20px 0;
+}
+
+.btn{
+    float: right;
+}

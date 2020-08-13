@@ -1,0 +1,41 @@
+<div class="row">
+	<div class="col-xs-9">
+		
+			<h2><%= "#{@customer.family_name}　#{@customer.first_name}" %>さんの会員詳細</h2>
+			<div>
+				<section>
+					<p>顧客ID</p>
+					<p class="date"><%= @customer.id %></p>
+				</section>	
+				<section>
+					<p>氏名</p>
+					<p class="date"><%= "#{@customer.family_name}　#{@customer.first_name}" %></p>
+				</section>
+				<section>
+					<p>フリガナ</p>
+					<p class="date"><%= "#{@customer.family_name_ruby}　#{@customer.first_name_ruby}" %></p>
+				</section>
+				<section>	
+					<p>郵便番号</p>
+					<p class="date"><%= @customer.postcode %></p>
+				</section>
+				<section>
+					<p>住所</p>
+					<p class="date"><%= @customer.address %></p>
+				</section>
+				<section>
+					<p>電話番号</p>
+					<p class="date"><%= @customer.tell_number %></p>
+				</section>
+				<section>
+					<p>メールアドレス</p>
+					<p class="date"><%= @customer.email %></p>
+				</section>
+				
+			</div>
+			
+			<button class="b btn-primary"><%= link_to "編集する", edit_admins_customer_path(@customer.id), class: "btn-font"%></button>
+			<button class="b btn-primary"><%= link_to "注文履歴一覧に戻る", admins_orders_path(@customer.id), class: "btn-font" %></button>
+		
+	</div>
+</div>

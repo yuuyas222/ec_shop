@@ -1,0 +1,23 @@
+<div class="row">
+
+	<%= render 'layouts/genre_search' %>
+
+	<div class="col-xs-9 clearfix">
+		
+			<div class="left-side"><%= attachment_image_tag(@product, :image, size: "200x150", fallback: "no-image-mini.jpg", class: "img") %></div>
+			<div class="col-xs-6 right-side">
+				<h2><%= @product.name %></h2>
+				<p><%= @product.description %></p>
+				<section><p>¥<%= @product.price %>(税抜き)</p></section>
+			</div>
+		
+		<% if customer_signed_in? %>
+			<div class="btn">
+				<%= form_with model: @quantity, url: cart_products_path(product_id: @product.id), method: :post,local: true do |f| %>
+				<%= f.select :quantity, [["1", 1],["2", 2]] %>
+				<%= f.submit 'カートに入れる' %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+</div>

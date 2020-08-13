@@ -1,0 +1,33 @@
+<h1>注文情報入力</h1>
+<%= form_with model: @order, url: orders_confirm_path, local: true do |f| %> 
+<div class="pay">
+    <h2>支払方法</h2>
+    <%= f.radio_button :payment, "クレジットカード" %>
+    <%= f.label :payment, "クレジットカード", {style: "display: inline-block;"} %><br>
+    <%= f.radio_button :payment, "銀行振込" %>
+    <%= f.label :payment, "銀行振込", {style: "display: inline-block;"} %>
+</div>
+<div class="shipping">
+    <h2>お届け先</h2>
+
+    <%= radio_button_tag(:select_radio, 1) %>
+    <%= current_customer.address %><br>
+    
+    <%= radio_button_tag(:select_radio, 2) %>
+    <%= f.label :shipping_address, "既に登録済み", {style: "display: inline-block;"} %>
+    <%= f.select :select_destinations, current_customer.destinations.all.map{|destination| [destination.address, destination.id]}, {style: "display: block;"} %><br>
+    
+    <%= radio_button_tag(:select_radio, 3) %>
+    <%= f.label :shipping_address, "新しいお届け先", {style: "display: inline-block;"} %><br>
+    <%= f.label :shipping_postcode, "郵便番号（ハイフンなし）", {style: "display: inline-block;"} %>
+    <%= f.text_field :shipping_postcode %><br>
+    <%= f.label :shipping_address, "住所", {style: "display: inline-block;"} %>
+    <%= f.text_field :shipping_address %><br>
+    <%= f.label :shipping_name, "宛名", {style: "display: inline-block;"} %>
+    <%= f.text_field :shipping_name %><br>
+
+</div>
+
+<%= f.submit "確認画面へ", class: "btn btn-primary" %>
+
+<% end %>

@@ -1,0 +1,39 @@
+
+<h3>商品詳細</h3>
+<div class="clearfix">
+
+	<div class="ad-left-side">
+		<div>
+		<%= attachment_image_tag(@product, :image, size: "200x150", fallback: "no-image-mini.jpg", class: "img") %>
+		</div>
+	</div>
+		<div class="ad-right-side">
+			<section class="ad-product">
+				<p>商品名　　</p>
+				<p><%= @product.name %></p>
+			</section>
+			<section class="ad-product">	
+				<p>商品説明　</p>
+				<p><%= @product.description %></p>
+			</section>
+			<section class="ad-product">	
+				<p>ジャンル　</p>
+				<p><%= @product.genre.name %></p>
+			</section>
+			<section class="ad-product">	
+				<p>税込価格<br>(税抜価格)　　</p>
+				<p>¥<%= @product.tax_price.floor %>
+				(¥<%= @product.price %>)</p>
+			</section>
+			<section class="ad-product">	
+				<p>販売<br>ステータス　　</p>
+				<% if @product.status == true %>
+				<p>販売中　　</p>
+				<% else %>
+				<p>販売停止　　</p>
+				<% end %>
+			</section>	
+		</div>
+
+</div>
+<%= link_to "編集する", edit_admins_product_path(@product.id), class: "btn btn-primary" %>

@@ -1,0 +1,34 @@
+<h3>商品編集</h3>
+
+<%= form_with model: @product, url: admins_product_path(@product.id), method: :patch, local: true do |f| %>
+	<div class="clearfix">	
+		<div class="ad-left-side">
+		<%= attachment_image_tag(@product, :image, size: "200x150", fallback: "no-image-mini.jpg", class: "img") %>
+			<%= f.attachment_field :image %>
+		</div> 
+	
+		<div class="ad-right-side">
+			<section　>
+				<p>商品名　　</p>
+				<%= f.text_field :name %>
+			</section>
+			<section>
+				<p>商品説明　</p>
+				<%= f.text_area :description %>
+			</section>
+			<section>
+				<p>ジャンル　</p>
+				<%= f.select :genre_id, Genre.all.map { |genre| [genre.name, genre.id] }, { include_blank: '選択してください'} %>
+			</section>
+			<section>
+				<p>税抜価格　</p>
+				<%= f.text_field :price %>円
+			</section>
+			<section>
+				<p>販売<br>ステータス　</p>
+				<%= f.select :status, {'販売中': true, '販売停止': false }, { include_blank: '選択してください'} %>
+			</section>
+		</div>
+	</div>
+	<%= f.submit "変更を保存", class: "btn btn-primary" %>
+	<% end %>

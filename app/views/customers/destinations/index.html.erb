@@ -1,0 +1,46 @@
+<div class="row">
+<h4>配送先/登録一覧</h4>
+<%= form_with model: @destination, url: destinations_path, method: :post, local: true do |f| %>
+  <p>郵便番号ハイフンなし</p>
+  <%= f.text_field :postcode %>
+  <p>住所</p>
+  <%= f.text_field :address %>
+  <p>宛名</p>
+  <%= f.text_field :name %>
+  <%= f.submit "登録する" %>
+<% end %>
+</div>
+
+<div class="row">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>郵便番号</th>
+				<th>住所</th>
+				<th>宛名</th>
+				<th colspan="2"></th>
+			</tr>
+		</thead>
+
+		<tbody>
+		<% @destinations.each do |destination| %>
+			<tr>
+				<td>
+					<%= destination.postcode %>
+				</td>
+				<td>
+					<%= destination.address %>
+				</td>
+				<td>
+					<%= destination.name %>
+				<td>
+					<%= link_to "編集する", edit_destination_path(destination.id) %>
+				</td>
+				<td>
+					<%= link_to "削除する", destination_path(destination.id), method: :delete, "data-confirm" => "本当に削除してますか？" %>
+				</td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+</div>

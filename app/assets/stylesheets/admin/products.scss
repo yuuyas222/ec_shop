@@ -1,0 +1,63 @@
+// Place all the styles related to the admin::products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 一覧のレイアウト
+.add{
+    float: right;
+    width: 30px;
+    height: 30px;
+    border-radius: 70px;
+    background-color: #fafad2;
+}
+
+h3{
+    display: inline-block;
+    background-color: #eeeeee;
+    padding: 0 10px;
+    margin: 0 10px;
+}
+
+// 新規、詳細のレイアウト
+
+.clearfix{
+    margin-top: 100px;
+}
+
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+// .attachment_field{
+//     height: 150px;
+//     width: 200px;
+// }
+
+.left-side{
+    float: left;
+    height: 300px;
+    margin-right: 20px;
+    padding-top: 15px;
+}
+
+// .img{
+//     width: 200px;
+//     height: 150px;
+//     border: 5px inset #fafad2;
+//     margin-bottom: 10px;
+// }
+.right-side{
+    float: left;
+    height: 300px;
+}
+
+section{
+    text-align: left;
+    margin: 20px 0;
+}
+
+.btn{
+    float: right;
+}

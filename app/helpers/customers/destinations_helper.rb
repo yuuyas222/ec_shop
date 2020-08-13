@@ -1,0 +1,2 @@
+module Customers::DestinationsHelper
+end

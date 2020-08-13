@@ -1,0 +1,33 @@
+<h1>登録情報編集</h1>
+<%= form_for(@customer, url:customers_path) do |f| %>
+<table>
+   <tr>
+    <th>名前</th> 
+    <td><%= f.text_field :family_name %></td>
+    <td><%= f.text_field :first_name %></td>
+   </tr> 
+   <tr>
+    <th>フリガナ</th> 
+    <td><%= f.text_field :family_name_ruby %></td>
+    <td><%= f.text_field :first_name_ruby %></td>
+   </tr> 
+   <tr>
+    <th>メールアドレス</th> 
+    <td><%= f.text_field :email %></td>
+   </tr> 
+   <tr>
+    <th>郵便番号(ハイフンなし)</th> 
+    <td><%= f.text_field :postcode %></td>
+   </tr> 
+   <tr>
+    <th>住所</th> 
+    <td><%= f.text_field :address %></td>
+   </tr> 
+   <tr>
+    <th>電話番号(ハイフンなし)</th> 
+    <td><%= f.text_field :tell_number %></td>
+   </tr> 
+</table>
+<%= f.submit "編集内容を変更する", class: "btn btn-primary" %>
+<% end %>
+<%= link_to "退会する", delete_account_path, class: "btn btn-denger" %>

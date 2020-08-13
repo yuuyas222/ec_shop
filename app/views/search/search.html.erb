@@ -1,0 +1,11 @@
+<h2>"<%= @content %>"の検索結果</h2>
+
+<% if @model == 'customer' %>
+
+<%= render 'admins/customers/index', customers: @record %>
+
+<% elsif @model == 'product' %>
+
+<%= render 'admins/products/index', products: @record %>
+
+<% end %>

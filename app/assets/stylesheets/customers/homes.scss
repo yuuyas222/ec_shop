@@ -1,0 +1,49 @@
+// Place all the styles related to the customers::homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-view {
+	background: image-url('main-view-pic.jpg');
+	background-size: cover;
+	height: 250px;
+	width: 600px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&-text {
+		background-color: #fff;
+		padding: 5px 10px;
+		line-height: 30px;
+	}
+}
+
+.main-view-text p{
+	width: 500px;
+}
+
+.favorite-wrapper {
+	& > h2 {
+		padding: 20px 0;
+	}
+}
+
+.favorite-products {
+	display: flex;
+}
+
+.favorite-product {
+	margin-right: 10px;
+	width: 25%;
+	&:last-child {
+		margin-right: 0;
+	}
+	&-pic {
+		height: 100px;
+		width: 100%;
+		margin-bottom: 10px;
+	}
+}
+
+.more-products {
+	text-align: right;
+}

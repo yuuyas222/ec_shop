@@ -1,0 +1,25 @@
+.genre-index {
+	&-wrapper {
+		height: 300px;
+		width: 80%;
+		border: 1px solid #000;
+	}
+
+	&-title {
+		padding: 10px;
+		text-align: center;
+		line-height: 18px;
+		border-bottom: 1px solid #000;
+	}
+
+	&-items {
+		& > ul {
+			margin-right: auto;
+			padding-left: 5px;
+		}
+	}
+
+	&-item {
+		line-height: 40px;
+	}
+}
